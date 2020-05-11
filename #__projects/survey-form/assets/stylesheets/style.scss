@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap");
+
+$color-white: #f3f3f3;
+$color-darkblue: #1b1b32;
+$color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+$color-green: #37af65;
+$light-gray: #e4e4e4;
+
+// Media
+$screen-sm-min: 768px; /* Small devices (tablets, 768px and up) */
+$screen-md-min: 992px; /* Medium devices (desktops, 992px and up) */
+$screen-lg-min: 1200px; /* Large devices (large desktops, 1200px and up) */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: $color-white;
+  margin: 0;
+}
+
+/* mobile friendly alternative to using background-attachment: fixed */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: $color-darkblue;
+  background-image: linear-gradient(
+      115deg,
+      rgba(58, 58, 158, 0.8),
+      rgba(136, 136, 206, 0.7)
+    ),
+    url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  @media screen and (min-width: $screen-sm-min) {
+    max-width: 720px;
+  }
+}
+
+header {
+  text-align: center;
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+  #title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  #description {
+    font-style: italic;
+    font-weight: 200;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    font-size: 1.5rem;
+  }
+}
+
+#main {
+  margin: 0 auto;
+
+  #survey-form {
+    background: $color-darkblue-alpha;
+    padding: 2.5rem 0.625rem;
+    border-radius: 0.25rem;
+    width: 90%;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 2.5rem;
+      width: 100%;
+    }
+  }
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: $light-gray;
+}
+
+.form-group {
+  padding: 0.25rem;
+  margin: 0 auto 1.25rem;
+  label, p {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-control {
+    background: $color-white;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 2px;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:focus {
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  }
+
+  .input-radio,
+  .input-checkbox {
+    display: inline-block;
+    margin-right: 0.625rem;
+    min-height: 1.25rem;
+    min-width: 1.25rem;
+  }
+
+  .input-textarea {
+    min-height: 120px;
+    width: 100%;
+    padding: 0.625rem;
+    resize: vertical;
+  }
+
+  .submit-button {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    padding: 1rem;
+    background: $color-green;
+    color: inherit;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+}
